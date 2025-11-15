@@ -1,0 +1,26 @@
+# Model configuration for SafeFusion
+
+model:
+  name: safefusion
+  version: v1.0
+  device: cuda  # cuda or cpu
+
+yolo:
+  model_name: yolov8n  # yolov8n, yolov8s, yolov8m
+  conf_threshold: 0.25
+  iou_threshold: 0.45
+  weights: weights/yolov8n.pt
+
+deepsort:
+  max_dist: 0.2
+  min_confidence: 0.3
+  max_iou_distance: 0.7
+  max_age: 70
+  n_init: 3
+
+transformer:
+  hidden_dim: 256
+  num_heads: 8
+  num_layers: 6
+  dropout: 0.1
+  weights: weights/safefusion_transformer.pth
